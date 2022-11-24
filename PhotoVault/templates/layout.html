@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  	<!-- CDNs -->
+
+  	<!-- Style Sheets -->
+    {% block styles %}
+  		{{ bootstrap.load_css() }}
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/jumbotron.css') }}">
+    {% endblock styles %}
+    {% endblock head %}
+  </head>
+  <body>
+  	{% block jumbotron %}
+  	{% endblock jumbotron %}
+
+    
+  </body>
+</html>
