@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron text-center">
+    <form method="POST" action="" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="jumbotron text-center">
+            <label>
+                {{ form.name(placeholder="Name") }}
+            </label>
+            <label>
+                {{ form.password(placeholder="Password") }}
+            </label>
+            <label>
+                {{ form.confirm_password(placeholder="Confirm Password") }}
+            </label>
+            <label>
+                {{ form.submit(placeholder="Create Account", class="btn btn-primary btn-lg") }}
+            </label>
+        </div>
+    </form>
+</div>
+{% endblock content %}

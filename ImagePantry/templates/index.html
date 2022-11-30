@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron text-center">
+	<div class="container">
+		<h1 style="font-size:100px;">
+			kitchen <i class="fa-solid fa-kitchen-set" style="font-size:58px;"></i> sync <br>
+		</h1>
+
+		<p style="color:#DDDDDD;">
+			Upload anything and EVERYTHING - For your eyes only. <br><br>
+		</p>
+
+		<a class="" href="{{ url_for('account_create') }}">
+			<button class="btn btn-primary btn-lg" type="submit" 
+				formaction="{{ url_for('account_create') }}"> Open Navigation
+			</button>
+		</a>
+	</div>
+</div>
+{% endblock content %}

@@ -1,23 +1,20 @@
 version: '3'
 services:
-  photovault:
-    image: photovault:latest
+  image_pantry:
+    image: image_pantry:latest
     build: 
-      context: ./PhotoVault
+      context: ./ImagePantry
       dockerfile: Dockerfile
-    container_name: photovault
+    container_name: image_pantry
     volumes:
       - type: bind
-        # source: "C:\\Users\\kabass\\Desktop\\oci_mockro_service\\proxy-webserver"
-        source: "/Users/kennethbass/Documents/kitchensync/PhotoVault"
+        source: "/Users/kennethbass/Documents/kitchensync/"
         target: "/app"
     ports:
     - '5000:5000'
     environment: 
     # - FLASK_APP=app.py
-    # - FLASK_ENV=development <= Deprecated (Using FLASK_DEBUG instead)
-    - FLASK_DEBUG=True
+    - FLASK_DEBUG=True # FLASK_ENVIRONMENT depcrecated
     - PORT=5000
     #depends_on:
-     #- rabbit
     #restart: on-failure

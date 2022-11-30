@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron">
+    Hello {{ current_user.name }} <br>
+    <br>
+    <form action="{{ url_for('logout') }}" method="post">
+        <button class="btn btn-primary btn-lg" type="submit">
+            <i class="fa-solid fa-hand-peace"></i>
+        </button>
+    </form>
+</div>
+{% endblock content %}
