@@ -5,18 +5,56 @@
         {{ form.hidden_tag() }}
 
         <div class="jumbotron text-center">
-            <label>
-                {{ form.name(placeholder="Name") }}
-            </label>
-            <label>
-                {{ form.password(placeholder="Password") }}
-            </label>
-            <label>
-                {{ form.confirm_password(placeholder="Confirm Password") }}
-            </label>
-            <label>
-                {{ form.submit(placeholder="Create Account", class="btn btn-primary btn-lg") }}
-            </label>
+            <div>
+                <label>
+                    {% if form.name.errors %}
+                        {% for error in form.name.errors %}
+                            <span class="warning">
+                                {{error}}</span>
+                        {% endfor %}
+                            {{ form.name(placeholder="Name") }}
+                    {% else %}
+                        {{ form.name(placeholder="Name") }}
+                    {% endif %}
+                </label>
+            </div>
+            <div>
+                <label>
+                    {% if form.password.errors %}
+                        <div>
+                        {% for error in form.password.errors %}
+                            <span class="warning">
+                                {{error}}
+                            </span>
+                        {% endfor %}
+                        {{ form.password(placeholder="Password") }}
+                        </div>
+                    {% else %}
+                        {{ form.password(placeholder="Password") }}
+                    {% endif %}
+                </label>
+            </div>
+            <div>
+                <label>
+                    {% if form.confirm.errors %}
+                        <div>
+                        {% for error in form.confirm.errors %}
+                            <span class="warning">
+                                {{error}}
+                            </span>
+                        {% endfor %}
+                        {{ form.confirm(placeholder="Confirm Password") }}
+                        </div>
+                    {% else %}
+                        {{ form.confirm(placeholder="Confirm Password") }}
+                    {% endif %}
+                </label>
+            </div>
+            <div>
+                <label>
+                    {{ form.submit(placeholder="Create Account", class="btn btn-primary btn-lg") }}
+                </label>
+            </div>
         </div>
     </form>
 </div>

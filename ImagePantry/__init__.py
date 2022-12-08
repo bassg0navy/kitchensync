@@ -18,7 +18,8 @@ db = client['imagePantry']
 # Login Manager #
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'Please login'
+login_manager.login_view = 'login'
+login_manager.login_message = 'Please login'
 login_manager.login_message_category = 'info'
 
 from ImagePantry import routes, forms, models

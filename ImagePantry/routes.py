@@ -24,6 +24,7 @@ def account_create():
 			return redirect(url_for('login'))
 		except Exception as e:
 			print(e)
+	print(form.errors)
 	return render_template('account_create.html', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -37,9 +38,9 @@ def login():
 			try:
 				user = User(
 					password = user_data['password'], 
-					name     = user_data['name']
+					name     = user_data['name'],
+					_id      = str(user_data['_id'])
 					)
-				print(f'User name is {user.name}')
 				login_user(user)
 				return redirect(url_for('home'))
 

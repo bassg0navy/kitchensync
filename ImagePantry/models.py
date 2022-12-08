@@ -10,16 +10,17 @@ photos = db['photos']
 videos = db['videos']
 
 class User():
-    def __init__(self, password, name):
+    def __init__(self, password, name, _id):
         self.password = password
-        self.name = name
+        self.name     = name
+        self._id      = _id
         # self._id = id
         # self.id = uuid.uuid4().hex if not id else id
 
     @classmethod
     def make_from_dict(cls, d):
         # Initialize User object from a dictionary
-        return cls(d['password'], d['name'])
+        return cls(d['password'], d['name'], d['_id'])
 
     def dict(self):
         # Return dictionary representation of the object
@@ -42,15 +43,14 @@ class User():
         return False
 
     def get_id(self):
-        # return ObjectId(self._id)
-        return str(self.name)
-        # return json.loads(json_util.dumps(self._id))
+        return str(self._id)
+        # return str(self.name)
 
 @login_manager.user_loader
-def load_user(name):
+def load_user(get_id):
     # Return user object or none
-    user = users.find_one({'name': name})
+    user = users.find_one({'_id': get_id})
+    # user = users.find_one({'name': get_id})
     if user:
         return User.make_from_dict(user)
-        # return user
     return None
